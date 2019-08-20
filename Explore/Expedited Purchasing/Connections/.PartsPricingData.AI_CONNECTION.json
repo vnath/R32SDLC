@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "31zHCfCyYHufrKwRw0DFIY",
+    "name" : "PartsPricingData",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "PTH0EKZhHwzZsMB-gt-36-2019-08-20T20:32:22.661Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Parts and Orders Database on shared instance. \nmysql account: luc / luc",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
