@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>R4w0VPNzUzeA8rJ-gt-606-2019-08-20T20:32:18.699Z::conn.xml</types1:EntryId>
+      <types1:Name>Cloud-Integration-Hub-IICS-actions</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vnath</types1:CreatedBy>
+      <types1:CreationDate>2019-08-20T20:32:19Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="Cloud-Integration-Hub-IICS-actions"
+                     label="Cloud-Integration-Hub-IICS-actions"
+                     name="Cloud-Integration-Hub-IICS-actions">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="hostName"
+                          value="cih-pod1.dm-us.informaticacloud.com:443"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/Cloud_Integration_Hub_IICS/Cloud_Integration_Hub_IICS_svcDef.xml"
+                               name="Cloud_Integration_Hub_IICS"
+                               supportsConnectionTest="false"
+                               uuid="089fc95e-82ff-4d74-9c55-fd465e3aff02">
+               <description>REST interface to publish data to a Cloud Integration Hub publication.
+</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>2X7oKpSdJuQdAeUfKFDZAu</types1:GUID>
+      <types1:DisplayName>Cloud-Integration-Hub-IICS-actions</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2019-08-20T20:56:39.044Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

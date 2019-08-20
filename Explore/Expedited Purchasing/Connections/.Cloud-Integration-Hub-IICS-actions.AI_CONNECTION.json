@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "2X7oKpSdJuQdAeUfKFDZAu",
+    "name" : "Cloud-Integration-Hub-IICS-actions",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "R4w0VPNzUzeA8rJ-gt-606-2019-08-20T20:32:18.699Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
