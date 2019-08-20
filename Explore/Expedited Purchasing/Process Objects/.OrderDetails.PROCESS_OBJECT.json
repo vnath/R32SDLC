@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "4aZnNqErcgCkA2q8qNyN4I",
+    "name" : "OrderDetails",
+    "type" : "PROCESS_OBJECT",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ciT6sFsdsFsdsFs-gt-622-2019-08-20T20:32:19.036Z::po.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
