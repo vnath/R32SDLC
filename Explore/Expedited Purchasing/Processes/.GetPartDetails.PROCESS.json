@@ -1,0 +1,43 @@
+{
+  "objectInfo" : {
+    "id" : "91nGmoiaxwSjP125ebB08R",
+    "name" : "GetPartDetails",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "k08jIw8jIw8jIw8-gt-64-2019-08-20T20:32:24.17Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Lists parts. Input required: Sku\n \nReturns: make, model, year ...",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "31zHCfCyYHufrKwRw0DFIY",
+    "name" : "PartsPricingData",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "PTH0EKZhHwzZsMB-gt-36-2019-08-20T20:32:22.661Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Parts and Orders Database on shared instance. \nmysql account: luc / luc",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  } ]
+}

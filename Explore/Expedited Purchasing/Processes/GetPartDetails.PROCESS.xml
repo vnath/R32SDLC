@@ -1,0 +1,150 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>k08jIw8jIw8jIw8-gt-64-2019-08-20T20:32:24.17Z::pd.xml</types1:EntryId>
+      <types1:Name>GetPartDetails</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Lists parts. Input required: Sku
+ 
+Returns: make, model, year ...</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vnath</types1:CreatedBy>
+      <types1:CreationDate>2019-08-20T20:32:24Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="GetPartDetails"
+                  name="GetPartDetails">
+            <appliesTo/>
+            <description>Lists parts. Input required: Sku
+ 
+Returns: make, model, year ...</description>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="Sku" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="make" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="model" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="year" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="category" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="osku" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="desc" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="partCost" type="double">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="part" type="reference">
+                  <options>
+                     <option name="referenceTo">PartsPricingData:sampleparts</option>
+                     <option name="required">false</option>
+                     <option name="guid">31zHCfCyYHufrKwRw0DFIY</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jc1jwra2" targetId="jc1jwra1"/>
+               </start>
+               <assignment id="jc1jwra1">
+                  <title>Lookup part</title>
+                  <operation source="query" to="temp.part">
+                     <query from="PartsPricingData-1:sampleparts">
+                        <where>sku = '{$input.Sku}'</where>
+                     </query>
+                  </operation>
+                  <link id="jc1nxzci" targetId="jc1nxzch"/>
+               </assignment>
+               <container id="jc1nxzch" type="exclusive">
+                  <title>Assign fields for part</title>
+                  <flow id="jc1nxzcl">
+                     <assignment id="jc1nxzdd">
+                        <title>Assign fields for part</title>
+                        <operation source="field" to="output.category">temp.part.category</operation>
+                        <operation source="field" to="output.desc">temp.part.descr</operation>
+                        <operation source="field" to="output.make">temp.part.make</operation>
+                        <operation source="field" to="output.model">temp.part.model</operation>
+                        <operation source="field" to="output.partCost">temp.part.partCost</operation>
+                        <operation source="field" to="output.osku">temp.part.sku</operation>
+                        <operation source="field" to="output.year">temp.part.year</operation>
+                     </assignment>
+                     <link id="jc1nxzcm" targetId="jc1nxzch" type="containerLink"/>
+                  </flow>
+                  <flow id="jc1nxzco">
+                     <assignment id="jc1nxzdk">
+                        <title>Set description to no matching part</title>
+                        <operation source="constant" to="output.desc">No Part Found</operation>
+                        <operation source="field" to="output.osku">input.Sku</operation>
+                     </assignment>
+                     <link id="jc1nxzcp" targetId="jc1nxzch" type="containerLink"/>
+                  </flow>
+                  <link id="jc1nxzck" targetId="jc1nxzcl" type="containerLink">
+                     <condition source="formula">
+                        <function name="set">
+                           <arg name="field">{$temp.part}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jc1nxzcn" targetId="jc1nxzco" type="containerLink">
+                     <condition source="formula">
+                        <function name="unset">
+                           <arg name="field">{$temp.part}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jc1nxzcj" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>91nGmoiaxwSjP125ebB08R</types1:GUID>
+      <types1:DisplayName>GetPartDetails</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2019-08-20T21:05:09.917Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
