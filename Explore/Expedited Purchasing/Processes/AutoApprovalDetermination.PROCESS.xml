@@ -1,0 +1,163 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>ifPNzUzeA8rJ4pb-gt-656-2019-08-20T20:32:22.144Z::pd.xml</types1:EntryId>
+      <types1:Name>AutoApprovalDetermination</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Rule-based determination. Test with ID: 001F0000013oHSKIA2</types1:Description>
+      <types1:AppliesTo>Salesforce:Account</types1:AppliesTo>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vnath</types1:CreatedBy>
+      <types1:CreationDate>2019-08-20T20:32:22Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="AutoApprovalDetermination"
+                  name="AutoApprovalDetermination">
+            <appliesTo>Salesforce:Account</appliesTo>
+            <description>Rule-based determination. Test with ID: 001F0000013oHSKIA2</description>
+            <tags/>
+            <generator>Informatica Process Designer 9</generator>
+            <input>
+               <parameter description="" name="Discount" required="true" type="double">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="" name="NumLicenses" type="double">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="RuleOutcome" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="normal">
+               <rest>
+                  <allowedUsers>
+                     <user>luc@na1.dm-us.org</user>
+                  </allowedUsers>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jcaa1hnt" targetId="jcaa1hns"/>
+               </start>
+               <container id="jcaa1hns" type="exclusive">
+                  <title>Discount</title>
+                  <flow id="jcaa1hnw">
+                     <assignment id="jcaa1hqn">
+                        <title>Assignment to RuleOutcome</title>
+                        <operation source="constant" to="output.RuleOutcome">Auto-Approved</operation>
+                     </assignment>
+                     <link id="jcaa1hnx" targetId="jcaa1hns" type="containerLink"/>
+                  </flow>
+                  <flow id="jcaa1hnz">
+                     <container id="jcaa1hw1" type="exclusive">
+                        <title>NumLicenses</title>
+                        <flow id="jcaa1hw4">
+                           <assignment id="jcaa1hx5">
+                              <title>Assignment to RuleOutcome</title>
+                              <operation source="constant" to="output.RuleOutcome">Auto-Approved</operation>
+                           </assignment>
+                           <link id="jcaa1hw5" targetId="jcaa1hw1" type="containerLink"/>
+                        </flow>
+                        <flow id="jcaa1hw7">
+                           <jumpTo id="jcaa1hxl">
+                              <link id="jcaa1hxm" targetId="jcaa1hsz"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="jcaa1hw3" targetId="jcaa1hw4" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-or-equals">
+                                 <arg name="left">{$input.NumLicenses}</arg>
+                                 <arg name="right">{50}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jcaa1hw6" targetId="jcaa1hw7" type="containerLink"/>
+                     </container>
+                     <link id="jcaa1ho0" targetId="jcaa1hns" type="containerLink"/>
+                  </flow>
+                  <flow id="jcaa1hqd">
+                     <container id="jcaa1hyh" type="exclusive">
+                        <title>NumLicenses</title>
+                        <flow id="jcaa1hyk">
+                           <assignment id="jcaa1i0m">
+                              <title>Assignment to RuleOutcome</title>
+                              <operation source="constant" to="output.RuleOutcome">Auto-Approved</operation>
+                           </assignment>
+                           <link id="jcaa1hyl" targetId="jcaa1hyh" type="containerLink"/>
+                        </flow>
+                        <flow id="jcaa1hyn">
+                           <jumpTo id="jcaa1i15">
+                              <link id="jcaa1i16" targetId="jcaa1hsz"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="jcaa1hyj" targetId="jcaa1hyk" type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-or-equals">
+                                 <arg name="left">{$input.NumLicenses}</arg>
+                                 <arg name="right">{100}</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="jcaa1hym" targetId="jcaa1hyn" type="containerLink"/>
+                     </container>
+                     <link id="jcaa1hqe" targetId="jcaa1hns" type="containerLink"/>
+                  </flow>
+                  <flow id="jcaa1hqf">
+                     <assignment id="jcaa1hsz">
+                        <title>Submit for Review</title>
+                        <operation source="constant" to="output.RuleOutcome">RequiresReview</operation>
+                     </assignment>
+                     <link id="jcaa1hqg" targetId="jcaa1hns" type="containerLink"/>
+                  </flow>
+                  <link id="jcaa1hnv" targetId="jcaa1hnw" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-than">
+                           <arg name="left">{$input.Discount}</arg>
+                           <arg name="right">{20}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jcaa1hny" targetId="jcaa1hnz" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-or-equals">
+                           <arg name="left">{$input.Discount}</arg>
+                           <arg name="right">{30}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jcaa1hqb" targetId="jcaa1hqd" type="containerLink">
+                     <condition source="formula">
+                        <function name="less-or-equals">
+                           <arg name="left">{$input.Discount}</arg>
+                           <arg name="right">{40}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="jcaa1hqc" targetId="jcaa1hqf" type="containerLink"/>
+                  <link id="jcaa1hnu" targetId="c"/>
+               </container>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>7uxT7C3M38ahINNUtxSAAW</types1:GUID>
+      <types1:DisplayName>AutoApprovalDetermination</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2019-08-20T21:01:59.843Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

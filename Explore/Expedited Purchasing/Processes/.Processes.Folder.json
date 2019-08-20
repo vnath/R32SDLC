@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "26WSH8XrIljfiMsnLgx5Kj",
+    "name" : "Processes",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Orchestrations and Integration Processes",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

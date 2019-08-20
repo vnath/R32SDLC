@@ -1,0 +1,24 @@
+{
+  "objectInfo" : {
+    "id" : "7uxT7C3M38ahINNUtxSAAW",
+    "name" : "AutoApprovalDetermination",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "ifPNzUzeA8rJ4pb-gt-656-2019-08-20T20:32:22.144Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Rule-based determination. Test with ID: 001F0000013oHSKIA2",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ ]
+}
