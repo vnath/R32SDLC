@@ -1,0 +1,43 @@
+{
+  "objectInfo" : {
+    "id" : "bpUrYNmaxCygc8fdvpnHqj",
+    "name" : "Expedited-Purchase-Service-actions",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "79t4ydx2CGeFRqX-gt-54-2019-08-20T20:32:23.943Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "anarYs47p4uhC53ZnGLEOv",
+    "name" : "Expedited Purchase Service",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "5ieE9cjIw8jIw8j-gt-614-2019-08-20T20:32:18.917Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  } ]
+}
