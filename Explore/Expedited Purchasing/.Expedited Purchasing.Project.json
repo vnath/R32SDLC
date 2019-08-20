@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "3URm7mQWjzSgFfWknz5uKK",
+    "name" : "Expedited Purchasing",
+    "type" : "Project",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Demo: Multi-channel Fulfillment Services",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

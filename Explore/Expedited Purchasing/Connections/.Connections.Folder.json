@@ -1,0 +1,22 @@
+{
+  "objectInfo" : {
+    "id" : "jNfWLN5mY4EbfoLaxClVg7",
+    "name" : "Connections",
+    "type" : "Folder",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 0,
+        "minor" : 0
+      },
+      "repoInfo" : null,
+      "contextAttributes" : [ ],
+      "additionalInfo" : {
+        "description" : "Expedited Purchasing application connections",
+        "contentType" : "Binary",
+        "documentState" : "COMPLETE"
+      }
+    }
+  },
+  "dataFileExtension" : "json",
+  "objectRefs" : [ ]
+}

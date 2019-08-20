@@ -1,0 +1,43 @@
+{
+  "objectInfo" : {
+    "id" : "5GUkRE0exq4kT9es0Wr2mv",
+    "name" : "B2B-File-Object-actions",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "COshBnJKoJBUhty-gt-72-2019-08-20T20:32:24.465Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "objectRefs" : [ {
+    "id" : "6JhY992SfcOc3768bePvAz",
+    "name" : "B2B File Object",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "tUSptM9hOznKKvv-gt-638-2019-08-20T20:32:19.312Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  } ]
+}
