@@ -1,0 +1,89 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>VNIW7WHK80FIRi9-gt-46-2019-08-20T20:32:23.772Z::pd.xml</types1:EntryId>
+      <types1:Name>Order_Processing</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>Listens to the AMQP shippingDetails topic</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:bs3e1cdb1z-Agent</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>vnath</types1:CreatedBy>
+      <types1:CreationDate>2019-08-20T20:32:24Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Order Processing"
+                  name="Order_Processing">
+            <appliesTo/>
+            <description>Listens to the AMQP shippingDetails topic</description>
+            <tags>.agent:bs3e1cdb1z-Agent</tags>
+            <generator>Informatica Process Designer 10</generator>
+            <input>
+               <parameter description="" name="event" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">AMQP-ActiveMQ-bs3e1cdb1z-Listener:AMQPMessage</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </parameter>
+            </input>
+            <tempFields>
+               <field description="" name="ShippingOrderTemp" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:ShippingDetails</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">3EXnawFgU32lhE3CVugsEo</option>
+                  </options>
+               </field>
+               <field description="" name="emailHeaderAndBody" type="reference">
+                  <options>
+                     <option name="referenceTo">EmailConnection:EmailTaskInput</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">lgle2xm0XObkFNc3N0200I</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>bs3e1cdb1z-Agent</targetLocation>
+               <event eventSource="AMQP-ActiveMQ-bs3e1cdb1z-Listener:ReadShippingDetails"/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="jcfyvz1v" targetId="jcfyvz1u"/>
+               </start>
+               <assignment id="jcfyvz1u">
+                  <title>Assignment to ShippingOrderTemp</title>
+                  <operation source="formula" to="temp.ShippingOrderTemp">
+                     <expression language="XQuery">$input.event[1]/body </expression>
+                  </operation>
+                  <link id="jcfyvz1w" targetId="jcfyepkp"/>
+               </assignment>
+               <service id="jcfyepkp">
+                  <title>Send Order Processing Notification</title>
+                  <serviceName>EmailConnection:sendEmailService</serviceName>
+                  <serviceGUID>lgle2xm0XObkFNc3N0200I</serviceGUID>
+                  <serviceInput>
+                     <parameter name="emailTaskInput" source="formula">
+                        <expression language="XQuery">&lt;EmailTaskInput&gt;  &lt;to&gt;jmanager@mailinator.com&lt;/to&gt;  &lt;subject&gt;Order Processing: {$temp.ShippingOrderTemp[1]/OrderID}  &lt;/subject&gt;  &lt;contentType&gt;text/html&lt;/contentType&gt;&lt;body&gt;Order Processing Details &amp;lt;br/&amp;gt; &amp;lt;br/&amp;gt; Tracking Number: {$temp.ShippingOrderTemp[1]/OrderID}  &amp;lt;br/&amp;gt; Close Date: {$temp.ShippingOrderTemp[1]/CloseDate}  &amp;lt;br/&amp;gt; Account Name: {$temp.ShippingOrderTemp[1]/AccountName}  &amp;lt;br/&amp;gt; Account Street Address: {$temp.ShippingOrderTemp[1]/AccountStreetAddress}  &amp;lt;br/&amp;gt; Account City: {$temp.ShippingOrderTemp[1]/AccountBillingCity}  &amp;lt;br/&amp;gt; Account State: {$temp.ShippingOrderTemp[1]/AccountBillingState}  &amp;lt;br/&amp;gt; Account Postal Code: {$temp.ShippingOrderTemp[1]/AccountBillingPostalCode}  &amp;lt;br/&amp;gt; Unit Price: {$temp.ShippingOrderTemp[1]/UnitPrice}  &amp;lt;br/&amp;gt; SKU: {$temp.ShippingOrderTemp[1]/SKU}  &amp;lt;br/&amp;gt; &amp;lt;br/&amp;gt; Thanks for your business. &lt;/body&gt;&lt;/EmailTaskInput&gt;</expression>
+                     </parameter>
+                  </serviceInput>
+                  <link id="jcfyepkr" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>4oKLVd2xnVQkbhBJTlOF8H</types1:GUID>
+      <types1:DisplayName>Order Processing</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2019-08-21T15:17:09.415Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
